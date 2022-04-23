@@ -1,5 +1,5 @@
 
-console.log('Client')
+// console.log('Client')
 // fetch('http://localhost:3000/weather?address=boston').then((response)=>{
 //     response.json().then((data) => {
 //         if(data.msg){
