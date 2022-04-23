@@ -2,12 +2,13 @@ const path=require('path')
 const hbs=require('hbs')
 const express=require('express')
 const request=require('request')
-const geocode=require('../../weather-app/utils/geocode')
+const geocode=require('./utils/geocode')
 // const geocode=require('../../weather-app/utils/geocode')
-const forecast=require('../../weather-app/utils/forecast')
+const forecast=require('./utils/forecast')
 
 
 const app=express()
+const port=process.env.PORT || 3000
 const location=path.join(__dirname,'../public')
 const viewPath=path.join(__dirname,'../templates/views')
 const partialsPath=path.join(__dirname,'../templates/partials')
@@ -78,6 +79,6 @@ app.get('*',(req,res)=>{
         msg: 'Page not found'
     })
 })
-app.listen(3000,()=>{
-    console.log('This website is on port 3000')
+app.listen(port,()=>{
+    console.log('This website is on port '+port)
 })
