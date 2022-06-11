@@ -15,9 +15,9 @@
 // })
 const weatherForm=document.querySelector('form')
 const search=document.querySelector('input')
-const message11=document.querySelector('#One')
-const message22=document.querySelector('#Two')
-weatherForm.addEventListener('submit',(e)=>{
+const message11=document.querySelector('.city')
+const message22=document.querySelector('.temp')
+document.querySelector(".btn").addEventListener('click',(e)=>{
     e.preventDefault()
     const location=search.value
     message11.textContent='Loading...'
@@ -30,13 +30,15 @@ weatherForm.addEventListener('submit',(e)=>{
         }
         else{
             message11.textContent=data.location
-            message22.textContent="temperature is " + data.forecast.temperature
+            message22.textContent= data.forecast.temperature + "°C"
+            document.querySelector('.icon').src=`img/${icon}.svg`;
             // console.log(data.location)
             // console.log("temperature is " + data.forecast.temperature)
         }
         
     
     })
+    
 })
     // console.log('testing')
 })

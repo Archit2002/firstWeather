@@ -41,7 +41,7 @@ app.get('/about',(req,res)=>{
 app.get('/weather',(req,res)=>{
     if(!req.query.address){
         return res.send({
-            msg: 'Please enter the address'
+            // msg: 'Please enter the address'
         })
     }
     // res.send({
