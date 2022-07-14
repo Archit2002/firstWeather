@@ -3,8 +3,9 @@ const hbs=require('hbs')
 const express=require('express')
 const request=require('request')
 const geocode=require('./utils/geocode')
-// const geocode=require('../../weather-app/utils/geocode')
 const forecast=require('./utils/forecast')
+
+// const geocode=require('../../weather-app/utils/geocode')
 
 
 const app=express()
@@ -41,10 +42,10 @@ app.get('/about',(req,res)=>{
 app.get('/weather',(req,res)=>{
     if(!req.query.address){
         return res.send({
-            // msg: 'Please enter the address'
+            msg: 'Please enter the address'
         })
     }
-    // res.send({
+   
         geocode.geocode(req.query.address,(error,{latitude,longitude,location}={})=>{
             if(error){
                 return res.send({
@@ -62,7 +63,7 @@ app.get('/weather',(req,res)=>{
                 //  console.log(location)
                 //  console.log(foredata)
                 res.send({
-                    location:req.query.address,
+                    location,
                     forecast:foredata
                 })
              })
